@@ -15,35 +15,6 @@ $(document).ready(function () {
         return false;
     });
 
-    if ($(window).scrollTop() < $('#advantages').offset().top + 200) {
-        $('nav ul li a.active').removeClass('active');
-        $('nav ul li:nth-child(1) a').addClass('active');
-    }
-    else if ($(window).scrollTop() < $('#calculator').offset().top + 200) {
-        $('nav ul li a.active').removeClass('active');
-    }
-    else if ($(window).scrollTop() < $('#reviews').offset().top + 200) {
-        $('nav ul li a.active').removeClass('active');
-        $('nav ul li:nth-child(2) a').addClass('active');
-    }
-
-    $(window).scroll(function() {
-
-        if ($(window).scrollTop() < $('#advantages').offset().top + 200) {
-            $('nav ul li a.active').removeClass('active');
-            $('nav ul li:nth-child(1) a').addClass('active');
-        }
-        else if ($(window).scrollTop() < $('#calculator').offset().top + 200) {
-            $('nav ul li a.active').removeClass('active');
-        }
-
-        else if ($(window).scrollTop() < $('#reviews').offset().top + 200) {
-            $('nav ul li a.active').removeClass('active');
-            $('nav ul li:nth-child(2) a').addClass('active');
-        }
-
-    });
-
     setTimeout(function() {
         $('.slider-wrap').animate({opacity: '1'}, 500);
     }, 500);
@@ -87,6 +58,12 @@ $(document).ready(function () {
 
         $(this).parents('.nav-panel').toggleClass('active');
 
+    });
+    
+    $('.window-feedback').click(function (event) {
+        $target = $(event.target);
+        if (!$target.closest($('.feedback')).length) $('.window-feedback').fadeOut();
+        if ($target.hasClass('button-ok')) $('.window-feedback').fadeOut();
     });
 
     /******************************************************************************************************************
@@ -143,6 +120,7 @@ $(document).ready(function () {
             showall: true,
             valid: function() {
                 // Получение ID формы
+                var fieldMessage = $('.message-feedback');
                 var formID = $(this).attr('id');
                 // Добавление решётки к имени ID
                 var formNm = $('#' + formID);
@@ -153,10 +131,12 @@ $(document).ready(function () {
                     url: scriptFile,
                     data: formNm.serialize(),
                     success: function (data) {
-                        
+                        $('.window-feedback').fadeIn();
+                        $(fieldMessage).html('Сообщение отправлено!');
                     },
                     error: function (data) {
-
+                        $('.window-feedback').fadeIn();
+                        $(fieldMessage).html('ОШИБКА!<br> Попробуйте еще раз!');
                     }
                 });
                 return false;

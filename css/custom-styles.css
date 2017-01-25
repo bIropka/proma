@@ -758,8 +758,8 @@ h1 span {
 }
 .slider-products .image-wrap {
     display: inline-block;
-    width: 120px;
-    height: 120px;
+    width: 117px;
+    height: 117px;
     -webkit-border-radius: 100%;
     -moz-border-radius: 100%;
     border-radius: 100%;
@@ -873,6 +873,9 @@ footer[role='contentinfo']:before {
     top: -15px;
     background: transparent url('../source/images/decor-white-top.png') repeat-x;
 }
+.footer-top {
+    padding-bottom: 30px;
+}
 
 .footer-logo {
     width: 400px;
@@ -960,15 +963,73 @@ footer[role='contentinfo']:before {
     bottom: -3px;
 }
 
+footer[role='contentinfo'] .nav-panel {
+    background: #f5f7f7;
+    position: relative;
+}
+footer[role='contentinfo'] .nav-panel:before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 15px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -15px;
+    background: transparent url('../source/images/decor-gray-top.png') repeat-x;
+}
+footer[role='contentinfo'] nav ul li:after {
+    color: #000;
+}
 footer[role='contentinfo'] nav ul li a,
 footer[role='contentinfo'] .to-calculator {
-    color: #000000;
+    color: #000;
 }
 footer[role='contentinfo'] nav ul li a:after {
     background: #000;
 }
 footer[role='contentinfo'] .to-calculator i {
     color: #035ba9;
+}
+
+/* modal */
+.window {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    text-align: left;
+    z-index: 100;
+    overflow: auto;
+}
+
+.feedback {
+    position: absolute;
+    width: 250px;
+    height: 150px;
+    padding: 20px 25px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #ffffff;
+    z-index: 101;
+    text-align: center;
+}
+.message-feedback {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.feedback button {
+    width: 100%;
+    margin: 0;
 }
 
 /**********************************************************************************************************************
@@ -1200,6 +1261,7 @@ footer[role='contentinfo'] .to-calculator i {
         text-align: left;
         background: rgba(255, 255, 255, .8);
         padding: 10px;
+        margin: 0 auto;
     }
     .header-contacts {
         margin-top: 20px;
@@ -1210,6 +1272,7 @@ footer[role='contentinfo'] .to-calculator i {
     .form-discount label,
     .form-discount button {
         display: block;
+        width: 100%;
         margin: 10px 0;
     }
     .form-discount label input {

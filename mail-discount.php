@@ -3,7 +3,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['discount-name'])) {$name = $_POST['discount-name'];}
     if (isset($_POST['discount-tel'])) {$phone = $_POST['discount-tel'];}
 
-    $to = "biropka@gmail.com"; /*Укажите адрес, на который должно приходить письмо*/
+    $to = "gi-stassy@mail.ru"; /*Укажите адрес, на который должно приходить письмо*/
     $sendfrom   = "proma"; /*Укажите адрес, с которого будет приходить письмо, можно не настоящий, нужно для формирования заголовка письма*/
     $headers  = "From: " . strip_tags($sendfrom) . "\r\n";
     $headers .= "Reply-To: ". strip_tags($sendfrom) . "\r\n";
