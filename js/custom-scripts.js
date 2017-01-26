@@ -4,6 +4,19 @@ $(document).ready(function () {
      ******* init scripts
      ******************************************************************************************************************/
 
+    $('#timer').countdown({
+        date: '01/27/2017 01:25:00',
+        offset: +3,
+        day: '',
+        days: '',
+        hour: '',
+        hours: '',
+        minute: '',
+        minutes: '',
+        second: '',
+        seconds: ''
+    });
+    
     $('a[href^="#"]').click(function(){
         $('nav ul li a').removeClass('active');
         $(this).addClass('active');
@@ -19,18 +32,24 @@ $(document).ready(function () {
         $('.slider-wrap').animate({opacity: '1'}, 500);
     }, 500);
 
-    $('#timer').countdown({
-        date: '01/25/2017 24:00:00',
-        offset: +3,
-        day: '',
-        days: '',
-        hour: '',
-        hours: '',
-        minute: '',
-        minutes: '',
-        second: '',
-        seconds: ''
+    if ($(window).scrollTop() > 300) {
+        $('.nav-panel .phone-number').addClass('active');
+    } else {
+
+        $('.nav-panel .phone-number').removeClass('active');
+    }
+
+    $(window).scroll(function() {
+
+        if ($(window).scrollTop() > 300) {
+            $('.nav-panel .phone-number').addClass('active');
+        } else {
+
+            $('.nav-panel .phone-number').removeClass('active');
+        }
+
     });
+
 
     /******************************************************************************************************************
      ******* clicks scripts
@@ -59,11 +78,17 @@ $(document).ready(function () {
         $(this).parents('.nav-panel').toggleClass('active');
 
     });
+
+    $('.get-in-touch').click(function() {
+
+        $('.window-callback').fadeIn();
+
+    });
     
-    $('.window-feedback').click(function (event) {
+    $('.window').click(function (event) {
         $target = $(event.target);
-        if (!$target.closest($('.feedback')).length) $('.window-feedback').fadeOut();
-        if ($target.hasClass('button-ok')) $('.window-feedback').fadeOut();
+        if (!$target.closest($('.window-inner')).length) $('.window').fadeOut();
+        if ($target.hasClass('button-ok')) $('.window').fadeOut();
     });
 
     /******************************************************************************************************************
@@ -126,6 +151,7 @@ $(document).ready(function () {
                 var formNm = $('#' + formID);
                 var scriptFile;
                 if (formID == 'form-discount') scriptFile = 'mail-discount.php';
+                if (formID == 'form-callback') scriptFile = 'mail-callback.php';
                 $.ajax({
                     type: "POST",
                     url: scriptFile,

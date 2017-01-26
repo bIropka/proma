@@ -35,6 +35,8 @@
                 </ul>
 
             </nav>
+            
+            <a class="phone-number" href="tel:88003338893">8 (800) <span>333-88-93</span></a>
 
             <a href="#calculator" class="to-calculator"><i class="fa fa-calculator"></i>КАЛЬКУЛЯТОР</a>
 
@@ -76,10 +78,7 @@
 
             </div>
 
-            <div class="tagline">
-                <span>Выбери свой забор</span>
-                <span>из штакетника</span>
-            </div>
+            <div class="tagline"><img src="source/images/tagline.png" alt="Выбери свой забор из штакетника"></div>
 
         </div>
 
@@ -427,13 +426,29 @@
 
 <div class="window window-feedback">
 
-    <div class="feedback">
+    <div class="window-inner feedback">
 
         <div class="message-feedback"></div>
 
         <button class="button-ok">OK</button>
 
     </div>
+
+</div>
+
+<div class="window window-callback">
+
+    <form class="window-inner form-callback" id="form-callback" action="mail-callback.php">
+
+        <div class="text">Ввеите имя<br> и номер телефона</div>
+
+        <label><input type="text" id="callback-name" name="callback-name" placeholder="Ваше имя"></label>
+
+        <label><input type="tel" id="callback-tel" name="callback-tel" placeholder="Ваш телефон"></label>
+
+        <button class="button-ok" type="submit">Перезвоните мне!</button>
+
+    </form>
 
 </div>
 

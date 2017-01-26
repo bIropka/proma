@@ -1,7 +1,7 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['discount-name'])) {$name = $_POST['discount-name'];}
-    if (isset($_POST['discount-tel'])) {$phone = $_POST['discount-tel'];}
+    if (isset($_POST['callback-name'])) {$name = $_POST['callback-name'];}
+    if (isset($_POST['callback-tel'])) {$phone = $_POST['callback-tel'];}
 
     $to = "biropka@gmail.com"; /*Укажите адрес, на который должно приходить письмо*/
     $sendfrom   = "proma"; /*Укажите адрес, с которого будет приходить письмо, можно не настоящий, нужно для формирования заголовка письма*/
@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/html;charset=utf-8 \r\n";
     $subject = "$formData";
-    $message = "$formData <br><b>Хочет получить скидку </b> <br> <b>Имя клиента:</b> $name <br><b>Телефон:</b> $phone";
+    $message = "$formData <br><b>Клиент просит перезвонить </b> <br> <b>Имя клиента:</b> $name <br><b>Телефон:</b> $phone";
     $send = mail ($to, $subject, $message, $headers);
     if ($send == 'true')
     {
